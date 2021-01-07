@@ -14,6 +14,7 @@ const HomeScreen = ({ navigation }) => {
     </View>
   );
 };
+
 const DetailsScreen = ({navigation}) => {
   return (
     <View style={styles.container}>
@@ -43,9 +44,19 @@ const Stack = createStackNavigator();
 const App = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen name="Details" component={DetailsScreen} />
+      <Stack.Navigator screenOptions={{
+            headerStyle: {
+              backgroundColor: "#F71414",
+            },
+            headerTintColor: "#fff",
+            headerTitleStyle: {
+              fontWeight: "bold"
+            }
+      }}>
+        <Stack.Screen name="Home" component={HomeScreen} options={{
+          title: "Red Tomato"
+        }} />
+        <Stack.Screen name="Details" component={DetailsScreen}  />
       </Stack.Navigator>
     </NavigationContainer>
   );
